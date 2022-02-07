@@ -23,6 +23,10 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:30.1.1-jre'
+
+    // implementation 'com.walterjwhite.java.modules.csv.modules:apache-commons-csv:0.0.17'
+    // implementation 'com.walterjwhite.modules.csv.modules:apache-commons-csv:0.0.15'
+    implementation 'io.github.qsy7.java.modules.csv.modules:apache-commons-csv:0.1.0'
 }
 
 application {
