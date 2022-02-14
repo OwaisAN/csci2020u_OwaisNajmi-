@@ -6,14 +6,14 @@
  * User Manual available at https://docs.gradle.org/7.3.3/userguide/building_java_projects.html
  */
 
-// buildscript {
-//     repositories {
-//         flatDir dirs: '/full/path/to/localrepo/csci2020u/proguard-7.1.0-beta5/csci2020u/proguard-7.1.0-beta5/lib'
-//     }
-//     dependencies{
-//         classpath ':proguard'
-//     }
-// }
+buildscript {
+    repositories {
+        flatDir dirs: '../proguard-7.1.0-beta5/proguard-7.1.0-beta5/lib'
+    }
+    dependencies{
+        classpath 'com.guardsquare:proguard-gradle:7.1.0'
+    }
+}
 
 
 
@@ -23,11 +23,13 @@ plugins {
     id 'application'
 }
 
+// LAB03
+version = '1.0'
 jar {
     manifest {
         attributes 'Main-Class': 'csci2020u.lab02.CSVDemo',
         'Implementation-Title': 'Lab03',
-        'Implementation-Version': 'version'
+        'Implementation-Version': version
 
     }
 }
@@ -61,9 +63,10 @@ tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
-// task (minify, dependsOn: 'jar', type: proguard.gradle.ProGuardTask){
-//     configuration 'proguard.cfg'
 
-//     injars 'build/libs/lab02.jar'
-//     outjars 'build/libs/lab02.jar'
-// }
+task (minify, dependsOn: 'jar', type: proguard.gradle.ProGuardTask){
+    configuration 'proguard.cfg'
+
+    injars 'build/libs/lab02.jar'
+    outjars 'build/libs/lab02.min.jar'
+}
