@@ -1,10 +1,7 @@
 package com.example.lab04;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class HelloController {
 
@@ -38,10 +35,14 @@ public class HelloController {
     @FXML
     private DatePicker dateBirthField;
 
+    @FXML
+    Button registerButton;
+
 
 
     @FXML
     protected void handleRegisterButton() {
+        System.out.println("helloWorld");
         System.out.println("Full Name: " + fullNameField.getText());
         System.out.println("E-mail: " + emailField.getText());
         System.out.println("Phone #: " + phoneNumberField.getText());
